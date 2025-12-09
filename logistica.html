@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logística del Evento - Boda Bernardo & Fátima</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='80'>💍</text></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #2d4232 0%, #4a6b53 50%, #6d8c74 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .logistics-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2d4232 0%, #4a6b53 50%, #6d8c74 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            display: inline-block;
+            background: white;
+            color: #2d4232;
+            padding: 10px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 0.95em;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.9);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-links a.active {
+            background: #1a2a1f;
+            color: white;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, #2d4232, #6d8c74);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding-left: 100px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 38px;
+            top: 0;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: #2d4232;
+            border: 4px solid white;
+            box-shadow: 0 0 0 3px #2d4232;
+        }
+
+        .time-badge {
+            display: inline-block;
+            background: #2d4232;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .timeline-content {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #2d4232;
+        }
+
+        .timeline-content h3 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .timeline-content p {
+            color: #666;
+            line-height: 1.6;
+            margin: 5px 0;
+        }
+
+        .location-card {
+            background: white;
+            border: 2px solid #2d4232;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+
+        .location-card h4 {
+            color: #2d4232;
+            margin-bottom: 10px;
+        }
+
+        .location-card a {
+            display: inline-block;
+            background: #2d4232;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 10px;
+            transition: all 0.3s;
+        }
+
+        .location-card a:hover {
+            background: #1a2a1f;
+            transform: translateX(5px);
+        }
+
+        .section {
+            margin: 30px 0;
+        }
+
+        .section h2 {
+            color: #2d4232;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #6d8c74;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #2d4232 0%, #6d8c74 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .info-box h3 {
+            font-size: 2em;
+            margin-bottom: 5px;
+        }
+
+        .info-box p {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        .alert {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .alert h4 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+
+        .alert p {
+            color: #856404;
+            margin: 5px 0;
+        }
+
+        .missing-info {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .missing-info h4 {
+            color: #721c24;
+            margin-bottom: 10px;
+        }
+
+        .missing-info ul {
+            color: #721c24;
+            margin-left: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .timeline-item {
+                padding-left: 80px;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item::before {
+                left: 18px;
+            }
+
+            .header h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="logistics-container">
+        <div class="header">
+            <h1>Logística del Evento</h1>
+            <p>Boda de Bernardo Molina Zuñiga & Fátima Yocelin Delgado Díaz</p>
+            <p style="margin-top: 10px;">Sábado, 24 de enero de 2026</p>
+
+            <div class="nav-links">
+                <a href="index.html">🏠 Invitación</a>
+                <a href="contrato.html">📄 Contrato</a>
+                <a href="logistica.html" class="active">📋 Logística</a>
+            </div>
+        </div>
+
+        <div class="content">
+            <!-- Información General -->
+            <div class="section">
+                <h2>📊 Información General</h2>
+                <div class="info-grid">
+                    <div class="info-box">
+                        <h3>24</h3>
+                        <p>ENERO 2026</p>
+                    </div>
+                    <div class="info-box">
+                        <h3>$6,500</h3>
+                        <p>TOTAL DEL PAQUETE</p>
+                    </div>
+                    <div class="info-box">
+                        <h3>$5,500</h3>
+                        <p>SALDO PENDIENTE</p>
+                    </div>
+                    <div class="info-box">
+                        <h3>16 ENE</h3>
+                        <p>FECHA LÍMITE PAGO</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Información Faltante -->
+            <div class="missing-info">
+                <h4>⚠️ INFORMACIÓN FALTANTE PARA COMPLETAR</h4>
+                <ul>
+                    <li>Nombre completo del contratante (quien firma)</li>
+                    <li>Nombre completo de la iglesia en San Felipe</li>
+                    <li>Dirección completa del Salón Dulce Sofía</li>
+                    <li>Hora de inicio de la recepción</li>
+                    <li>Enlaces de Google Maps de ambas ubicaciones</li>
+                    <li>Código de vestimenta</li>
+                    <li>Mesa de regalos (lluvia de sobres, banco o tienda)</li>
+                    <li>Fecha límite para confirmar asistencia</li>
+                    <li>Redes sociales de los novios (opcional)</li>
+                    <li>Fotos de noviazgo y boda civil (para video y web)</li>
+                    <li>Padrinos adicionales (lazo, arras, cristo, cojines, ramos, biblia, etc.)</li>
+                </ul>
+            </div>
+
+            <!-- Timeline del Evento -->
+            <div class="section">
+                <h2>⏰ Timeline del Evento</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="time-badge">6:00 PM</span>
+                        <div class="timeline-content">
+                            <h3>Ceremonia Religiosa</h3>
+                            <p><strong>Ubicación:</strong> 📝 Nombre de la iglesia</p>
+                            <p><strong>Dirección:</strong> Jerusalén de San Felipe #510, Col. San Felipe de Jesús, León, Gto.</p>
+                            <p><strong>Duración estimada:</strong> 45-60 minutos</p>
+                            <div class="location-card">
+                                <h4>📍 Ubicación</h4>
+                                <p>📝 FALTA: Enlace de Google Maps</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <span class="time-badge">📝 FALTA HORA</span>
+                        <div class="timeline-content">
+                            <h3>Recepción / Fiesta</h3>
+                            <p><strong>Ubicación:</strong> Salón Dulce Sofía</p>
+                            <p><strong>Dirección:</strong> 📝 FALTA: Dirección completa</p>
+                            <p><strong>Duración estimada:</strong> Hasta aproximadamente 2:00 AM</p>
+                            <div class="location-card">
+                                <h4>📍 Ubicación</h4>
+                                <p>📝 FALTA: Enlace de Google Maps</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Datos de la Familia -->
+            <div class="section">
+                <h2>👨‍👩‍👧 Datos de la Familia</h2>
+
+                <h3 style="color: #2d4232; margin-top: 20px;">Novios</h3>
+                <div class="timeline-content">
+                    <p><strong>Novio:</strong> Bernardo Molina Zuñiga</p>
+                    <p><strong>Novia:</strong> Fátima Yocelin Delgado Díaz</p>
+                </div>
+
+                <h3 style="color: #2d4232; margin-top: 20px;">Padres del Novio</h3>
+                <div class="timeline-content">
+                    <p>Pablo Molina Villalobos</p>
+                    <p>María de Jesús Zuñiga Barrón</p>
+                </div>
+
+                <h3 style="color: #2d4232; margin-top: 20px;">Padres de la Novia</h3>
+                <div class="timeline-content">
+                    <p>Mario Delgado Lara</p>
+                    <p>María del Rosario Díaz Gasca</p>
+                </div>
+
+                <h3 style="color: #2d4232; margin-top: 20px;">Padrinos de Velación</h3>
+                <div class="timeline-content">
+                    <p>Leobardo Zuñiga Barrón</p>
+                    <p>María Leonor Barba Hernández</p>
+                </div>
+
+                <h3 style="color: #2d4232; margin-top: 20px;">Padrinos de Anillos</h3>
+                <div class="timeline-content">
+                    <p>Fray Martín Aguilera Abundis</p>
+                    <p>Martha Fabiola Rocha Delgado</p>
+                </div>
+
+                <div class="alert">
+                    <h4>⚠️ Padrinos Adicionales</h4>
+                    <p>📝 FALTA: Información de otros padrinos (lazo, arras, cristo, cojines, ramos, biblia, etc.)</p>
+                </div>
+            </div>
+
+            <!-- Paquete Contratado -->
+            <div class="section">
+                <h2>📦 Paquete Contratado</h2>
+                <div class="timeline-content">
+                    <h3>Paquete Tradicional + Dron</h3>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>✅ 100 fotos del evento impresas</li>
+                        <li>✅ 1 ampliación 50x60 cm con marco</li>
+                        <li>✅ Grabación completa del evento</li>
+                        <li>✅ Archivos digitales en USB (4K)</li>
+                        <li>✅ Tomas con dron ($500 adicionales)</li>
+                        <li>🎁 BONIFICACIÓN: Invitación web GRATIS (promoción 2025)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Pagos -->
+            <div class="section">
+                <h2>💰 Control de Pagos</h2>
+                <div class="timeline-content">
+                    <p><strong>Total del Paquete:</strong> $6,500.00</p>
+                    <p style="color: green; margin-top: 10px;">✓ Anticipo pagado: $1,000.00 (8 de diciembre de 2025)</p>
+                    <p style="color: red; margin-top: 10px;">⏳ Saldo pendiente: $5,500.00</p>
+                    <p style="margin-top: 10px;"><strong>Fecha límite de pago:</strong> 16 de enero de 2026 (8 días antes del evento)</p>
+                </div>
+            </div>
+
+            <!-- Checklist Pre-Evento -->
+            <div class="section">
+                <h2>✅ Checklist Pre-Evento</h2>
+                <div class="timeline-content">
+                    <h3>📋 Tareas Pendientes</h3>
+                    <ul style="margin-left: 20px; margin-top: 10px; line-height: 2;">
+                        <li>☐ Completar información faltante de ubicaciones</li>
+                        <li>☐ Obtener enlaces de Google Maps</li>
+                        <li>☐ Confirmar hora exacta de inicio de recepción</li>
+                        <li>☐ Definir código de vestimenta</li>
+                        <li>☐ Establecer fecha límite de confirmación</li>
+                        <li>☐ Recopilar fotos de noviazgo y boda civil</li>
+                        <li>☐ Completar lista de padrinos</li>
+                        <li>☐ Liquidar saldo antes del 16 de enero de 2026</li>
+                        <li>☐ Coordinar sesión fotográfica previa (opcional)</li>
+                        <li>☐ Confirmar permisos de vuelo para dron</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Información de Contacto -->
+            <div class="section">
+                <h2>📞 Contactos</h2>
+                <div class="info-grid">
+                    <div class="timeline-content">
+                        <h3>Foro 7 (Servicios)</h3>
+                        <p><strong>Arturo Cruz</strong></p>
+                        <p>📱 +52 1 314 124 9757</p>
+                        <p>📱 477-920-3776</p>
+                        <p>📍 Padilla 112, Cumbres de Arbide, León, Gto.</p>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Cliente</h3>
+                        <p><strong>📝 Nombre del contratante</strong></p>
+                        <p>📱 +52 1 477 842 7540</p>
+                        <p>📍 Jerusalén de San Felipe #510, Col. San Felipe de Jesús</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notas Importantes -->
+            <div class="alert">
+                <h4>⚠️ NOTAS IMPORTANTES</h4>
+                <p>• El saldo debe estar liquidado 8 días antes del evento para confirmar la fecha</p>
+                <p>• Las tomas con dron están sujetas a condiciones climáticas favorables</p>
+                <p>• La entrega del material editado será aproximadamente 30-45 días después del evento</p>
+                <p>• Como promoción especial 2025, la invitación web está incluida GRATIS</p>
+                <p>• Producciones Foro 7 mantiene los derechos de autor del material producido</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

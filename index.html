@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boda - Bernardo & Fátima</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='80'>💍</text></svg>">
+
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mr+De+Haviland&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Música de fondo -->
+    <audio id="background-music" loop>
+        <source src="musica-fondo.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Botón de música -->
+    <button id="music-toggle" class="music-btn" aria-label="Controlar música">
+        <i id="music-icon" class="fas fa-volume-mute"></i>
+    </button>
+
+    <!-- FIXED DECORATIONS -->
+    <div class="fixed-background">
+        <div class="floral-decoration top-left">
+            <img src="rosa-izquierda.png" alt="" aria-hidden="true">
+        </div>
+        <div class="floral-decoration bottom-right">
+            <img src="rosa-derecha.png" alt="" aria-hidden="true">
+        </div>
+        <div class="geometric-frame"></div>
+    </div>
+
+    <!-- TRANSITIONING CONTENT SECTIONS -->
+    <main class="content-wrapper">
+
+        <!-- 1. Hero Section INICIAL -->
+        <section class="content-section active" data-section="initial">
+            <div class="hero-content">
+                <p class="hero-subtitle">TE INVITAMOS A</p>
+                <h1 class="hero-title">NUESTRA BODA</h1>
+
+                <div class="couple-names-container">
+                    <h2 class="couple-names">
+                        Bernardo <br>
+                        <span class="ampersand-small">y</span> <br>
+                        Fátima
+                    </h2>
+                </div>
+
+                <div class="date-container">
+                    <p class="date-month">ENERO</p>
+                    <div class="date-row">
+                        <span class="date-day">SÁBADO</span>
+                        <span class="date-number">24</span>
+                        <span class="date-time">6:00 PM</span>
+                    </div>
+                    <p class="date-year">2026</p>
+                </div>
+
+                <div class="scroll-indicator"><i class="fas fa-chevron-down"></i></div>
+            </div>
+        </section>
+
+        <!-- 2. Parents Section -->
+        <section class="content-section" data-section="parents">
+            <div class="hero-content">
+                <p class="hero-subtitle">CON LA BENDICIÓN DE</p>
+                <h1 class="hero-title">NUESTROS PADRES</h1>
+
+                <div class="parents-hero-group">
+                    <h3 class="parents-hero-label">Padres de la Novia</h3>
+                    <div class="parents-hero-names">
+                        <p>Mario Delgado Lara</p>
+                        <p>María del Rosario Díaz Gasca</p>
+                    </div>
+                </div>
+
+                <div class="parents-hero-divider">
+                    <span class="ampersand-small">&</span>
+                </div>
+
+                <div class="parents-hero-group">
+                    <h3 class="parents-hero-label">Padres del Novio</h3>
+                    <div class="parents-hero-names">
+                        <p>Pablo Molina Villalobos</p>
+                        <p>María de Jesús Zuñiga Barrón</p>
+                    </div>
+                </div>
+
+                <div class="scroll-indicator"><i class="fas fa-chevron-down"></i></div>
+            </div>
+        </section>
+
+        <!-- 2.5 Padrinos Section -->
+        <section class="content-section" data-section="padrinos">
+            <div class="hero-content">
+                <p class="hero-subtitle">NOS ACOMPAÑAN COMO</p>
+                <h1 class="hero-title">PADRINOS</h1>
+
+                <div class="info-grid" style="max-width: 800px; margin: 0 auto;">
+                    <div class="info-card">
+                        <div class="info-icon"><i class="fas fa-ring"></i></div>
+                        <h3>Velación</h3>
+                        <p>Leobardo Zuñiga Barrón<br>María Leonor Barba Hernández</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon"><i class="fas fa-gem"></i></div>
+                        <h3>Anillos</h3>
+                        <p>Fray Martín Aguilera Abundis<br>Martha Fabiola Rocha Delgado</p>
+                    </div>
+                    <!-- 📝 NOTA: Agregar más padrinos según la información del evento -->
+                </div>
+
+                <div class="scroll-indicator"><i class="fas fa-chevron-down"></i></div>
+            </div>
+        </section>
+
+        <!-- 3. Quote Section -->
+        <section class="content-section" data-section="quote">
+            <div class="hero-content">
+                <p class="hero-subtitle">CON TODO NUESTRO AMOR</p>
+                <h1 class="hero-title">AGRADECIMIENTO</h1>
+
+                <div class="quote-hero-text">
+                    <p class="quote-message">Gracias por acompañarnos en este día tan especial. Hoy unimos nuestras vidas ante Dios y ante ustedes, nuestros seres queridos. Su presencia es el mejor regalo que podemos recibir.</p>
+                </div>
+
+                <div class="scroll-indicator"><i class="fas fa-chevron-down"></i></div>
+            </div>
+        </section>
+
+        <!-- 3.5 Video Section -->
+        <section class="content-section" data-section="video">
+            <div class="hero-content">
+                <p class="hero-subtitle">REVIVE NUESTROS MOMENTOS</p>
+                <h1 class="hero-title">NUESTRA HISTORIA</h1>
+
+                <div class="video-container">
+                    <div class="video-wrapper">
+                        <div id="youtube-player-boda"></div>
+                    </div>
+                    <p class="video-description">Momentos especiales de nuestro camino juntos</p>
+                    <p style="color: #ffc107; margin-top: 10px;">📝 NOTA: El video será subido después de la sesión fotográfica</p>
+                </div>
+
+                <div class="scroll-indicator"><i class="fas fa-chevron-down"></i></div>
+            </div>
+        </section>
+
+        <!-- 4. Countdown Section -->
+        <section class="content-section" data-section="countdown">
+            <div class="hero-content">
+                <p class="hero-subtitle">NUESTRO GRAN DÍA EN</p>
+                <h1 class="hero-title">CUENTA REGRESIVA</h1>
+
+                <div class="countdown" id="countdown">
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="days">00</span>
+                        <span class="countdown-label">Días</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="hours">00</span>
+                        <span class="countdown-label">Horas</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="minutes">00</span>
+                        <span class="countdown-label">Minutos</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="seconds">00</span>
+                        <span class="countdown-label">Segundos</span>
+                    </div>
+                </div>
+
+                <div class="scroll-indicator"><i class="fas fa-chevron-down"></i></div>
+            </div>
+        </section>
+
+        <!-- 5. Ceremony Section -->
+        <section class="content-section" data-section="ceremony">
+            <div class="hero-content">
+                <p class="hero-subtitle">TE ESPERAMOS EN</p>
+                <h1 class="hero-title">CEREMONIA RELIGIOSA</h1>
+
+                <div class="event-hero-details">
+                    <div class="event-icon"><i class="fas fa-church"></i></div>
+                    <p class="event-time">6:00 PM</p>
+                    <p class="event-location">📝 FALTA: Nombre completo de la iglesia</p>
+                    <p class="event-address">Jerusalén de San Felipe #510, Col. San Felipe de Jesús, León, Gto.</p>
+                    <p class="event-note"><i class="fas fa-star"></i> Todos pueden asistir</p>
+                    <p class="event-suggestion"><i class="far fa-clock"></i> Sugerimos llegar 15 minutos antes</p>
+                    <div class="map-buttons">
+                        <a href="#" target="_blank" class="btn-map">
+                            <i class="fas fa-map-marked-alt"></i> 📝 FALTA: Enlace de Google Maps
+                        </a>
+                    </div>
+                </div>
+
+                <div class="scroll-indicator"><i class="fas fa-chevron-down"></i></div>
+            </div>
+        </section>
+
+        <!-- 6. Reception Section -->
+        <section class="content-section" data-section="reception">
+            <div class="hero-content">
+                <p class="hero-subtitle">CELEBREMOS EN</p>
+                <h1 class="hero-title">RECEPCIÓN</h1>
+
+                <div class="event-hero-details">
+                    <div class="event-icon"><i class="fas fa-glass-cheers"></i></div>
+                    <p class="event-time">📝 FALTA: Hora de inicio de la recepción</p>
+                    <p class="event-location">Salón Dulce Sofía</p>
+                    <p class="event-address">📝 FALTA: Dirección completa del Salón Dulce Sofía</p>
+                    <p class="event-suggestion"><i class="far fa-clock"></i> Sugerimos llegar 15 minutos antes</p>
+                    <div class="map-buttons">
+                        <a href="#" target="_blank" class="btn-map">
+                            <i class="fas fa-map-marked-alt"></i> 📝 FALTA: Enlace de Google Maps
+                        </a>
+                    </div>
+                </div>
+
+                <div class="scroll-indicator"><i class="fas fa-chevron-down"></i></div>
+            </div>
+        </section>
+
+        <!-- 7. Dress Code Section -->
+        <section class="content-section" data-section="dresscode">
+            <div class="hero-content">
+                <p class="hero-subtitle">CÓDIGO DE</p>
+                <h1 class="hero-title">VESTIMENTA</h1>
+
+                <div class="dresscode-content">
+                    <div class="event-icon"><i class="fas fa-user-tie"></i></div>
+                    <p class="dress-code-text">📝 FALTA: Formal / Semi-formal / Casual Elegante</p>
+                </div>
+
+                <div class="scroll-indicator"><i class="fas fa-chevron-down"></i></div>
+            </div>
+        </section>
+
+        <!-- 8. Gifts Section -->
+        <section class="content-section" data-section="gifts">
+            <div class="hero-content">
+                <p class="hero-subtitle">SI DESEAS OBSEQUIARNOS</p>
+                <h1 class="hero-title">MESA DE REGALOS</h1>
+
+                <p class="gifts-subtitle">Tu presencia es nuestro mejor regalo</p>
+
+                <div class="gifts-hero-content">
+                    <div class="event-icon"><i class="fas fa-gift"></i></div>
+                    <h3>📝 FALTA: ¿Lluvia de sobres, banco específico o tienda?</h3>
+                    <p>📝 Indicar: Si es lluvia de sobres, banco (número de cuenta), o tienda departamental</p>
+                </div>
+
+                <div class="scroll-indicator"><i class="fas fa-chevron-down"></i></div>
+            </div>
+        </section>
+
+        <!-- 9. Social Media Section -->
+        <section class="content-section" data-section="social">
+            <div class="hero-content">
+                <p class="hero-subtitle">QUEREMOS VER TUS FOTOS</p>
+                <h1 class="hero-title">COMPARTE CON NOSOTROS</h1>
+
+                <p class="social-subtitle">Usa nuestro hashtag en redes sociales</p>
+                <h3 class="hashtag">#BernardoYFatima2026</h3>
+
+                <div class="social-links">
+                    <p style="color: #ffc107;">📝 FALTA: Redes sociales de los novios (opcional)</p>
+                </div>
+
+                <div class="scroll-indicator"><i class="fas fa-chevron-down"></i></div>
+            </div>
+        </section>
+
+        <!-- 10. RSVP Section -->
+        <section class="content-section" data-section="rsvp">
+            <div class="hero-content">
+                <p class="hero-subtitle">NECESITAMOS SABER</p>
+                <h1 class="hero-title">CONFIRMACIÓN</h1>
+
+                <p class="rsvp-subtitle">📝 FALTA: Fecha límite para confirmar (sugerido: 8 días antes - 16 de enero 2026)</p>
+
+                <div class="whatsapp-numbers">
+                    <div class="whatsapp-item">
+                        <p class="whatsapp-name"><i class="fas fa-phone"></i> Cliente</p>
+                        <a href="https://wa.me/524778427540?text=Hola,%20confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Bernardo%20y%20Fátima" target="_blank" class="btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> +52 1 477 842 7540
+                        </a>
+                    </div>
+                </div>
+
+                <div class="scroll-indicator"><i class="fas fa-chevron-down"></i></div>
+            </div>
+        </section>
+
+        <!-- 11. Info Section -->
+        <section class="content-section" data-section="info">
+            <div class="hero-content">
+                <p class="hero-subtitle">DETALLES QUE DEBES SABER</p>
+                <h1 class="hero-title">INFORMACIÓN</h1>
+
+                <div class="info-grid">
+                    <div class="info-card">
+                        <div class="info-icon"><i class="fas fa-music"></i></div>
+                        <h3>Música</h3>
+                        <p>¡Habrá música en vivo y DJ!</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon"><i class="fas fa-utensils"></i></div>
+                        <h3>Comida y Bebida</h3>
+                        <p>Cena completa y barra libre</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon"><i class="fas fa-parking"></i></div>
+                        <h3>Estacionamiento</h3>
+                        <p>Habrá estacionamiento disponible</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon"><i class="fas fa-church"></i></div>
+                        <h3>Ceremonia</h3>
+                        <p>Todos pueden asistir</p>
+                    </div>
+                </div>
+
+                <div class="scroll-indicator"><i class="fas fa-chevron-down"></i></div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-message">¡Gracias por acompañarnos en este día tan especial!</p>
+            <p class="footer-names">Bernardo & Fátima</p>
+            <p class="footer-date">24.01.2026</p>
+            <div style="margin: 20px 0;">
+                <a href="contrato.html" style="display: inline-block; background: white; color: #2d4232; padding: 12px 30px; text-decoration: none; border-radius: 50px; font-weight: 600; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 25px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.2)'">
+                    📄 Ver Contrato de Servicios
+                </a>
+            </div>
+            <p class="footer-credit">Invitaciones, Fotografía, Video y Dron: Foro 7 - Arturo Cruz - 477-920-3776</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <!-- YouTube Player API -->
+    <script>
+        var playerBoda;
+        function onYouTubeIframeAPIReady() {
+            playerBoda = new YT.Player('youtube-player-boda', {
+                videoId: '', // 📝 FALTA: ID del video de YouTube
+                playerVars: {
+                    'rel': 0,
+                    'modestbranding': 1,
+                    'playsinline': 1
+                },
+                events: {
+                    'onReady': onPlayerBodaReady,
+                    'onStateChange': onPlayerBodaStateChange
+                }
+            });
+        }
+
+        function onPlayerBodaReady(event) {
+            var availableQualities = playerBoda.getAvailableQualityLevels();
+            if (availableQualities.indexOf('hd1080') !== -1) {
+                playerBoda.setPlaybackQuality('hd1080');
+            } else if (availableQualities.indexOf('hd720') !== -1) {
+                playerBoda.setPlaybackQuality('hd720');
+            } else if (availableQualities.indexOf('large') !== -1) {
+                playerBoda.setPlaybackQuality('large');
+            }
+        }
+
+        function onPlayerBodaStateChange(event) {
+            if (event.data == YT.PlayerState.PLAYING || event.data == YT.PlayerState.BUFFERING) {
+                var currentQuality = playerBoda.getPlaybackQuality();
+                if (currentQuality !== 'hd1080' && currentQuality !== 'hd720') {
+                    var availableQualities = playerBoda.getAvailableQualityLevels();
+                    if (availableQualities.indexOf('hd1080') !== -1) {
+                        playerBoda.setPlaybackQuality('hd1080');
+                    } else if (availableQualities.indexOf('hd720') !== -1) {
+                        playerBoda.setPlaybackQuality('hd720');
+                    }
+                }
+            }
+        }
+
+        if (!window.YT) {
+            var tag = document.createElement('script');
+            tag.src = "https://www.youtube.com/iframe_api";
+            var firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        }
+    </script>
+</body>
+</html>
