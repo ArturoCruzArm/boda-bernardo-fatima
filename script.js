@@ -60,6 +60,13 @@ function initMusic() {
         hasInteracted = true;
 
         if (music.paused || !isPlaying) {
+            // Si el video de YouTube está reproduciéndose, pausarlo primero
+            if (typeof youtubePlayer !== 'undefined' && youtubePlayer && typeof youtubePlayer.getPlayerState === 'function') {
+                if (youtubePlayer.getPlayerState() === YT.PlayerState.PLAYING) {
+                    youtubePlayer.pauseVideo();
+                    console.log('Video de YouTube pausado para reproducir música');
+                }
+            }
             // Intentar reproducir
             const playPromise = music.play();
             if (playPromise !== undefined) {
@@ -192,6 +199,8 @@ function initContentTransitions() {
                     animateRSVPSection(entry.target);
                 } else if (sectionType === 'info') {
                     animateInfoSection(entry.target);
+                } else if (sectionType === 'video') {
+                    animateVideoSection(entry.target);
                 }
             }
         });
@@ -745,3 +754,75 @@ style.textContent = `
 document.head.appendChild(style);
 
 console.log('%c✨ Invitación cargada exitosamente ✨', 'font-size: 14px; color: #D4AF37; font-weight: bold;');
+
+// ===================================
+// YOUTUBE VIDEO CON ALTERNANCIA DE AUDIO
+// ===================================
+let youtubePlayer = null;
+let backgroundMusicWasPlaying = false;
+
+// Esta función es llamada automáticamente por la API de YouTube cuando está lista
+function onYouTubeIframeAPIReady() {
+    youtubePlayer = new YT.Player('youtube-player', {
+        videoId: 'Of7Emrbs9vs',
+        playerVars: {
+            'playsinline': 1,
+            'rel': 0,
+            'modestbranding': 1,
+            'showinfo': 0
+        },
+        events: {
+            'onStateChange': onPlayerStateChange
+        }
+    });
+    console.log('✅ Reproductor de YouTube inicializado');
+}
+
+// Manejar cambios de estado del video de YouTube
+function onPlayerStateChange(event) {
+    const music = document.getElementById('background-music');
+    const musicIcon = document.getElementById('music-icon');
+
+    if (!music) return;
+
+    // YT.PlayerState.PLAYING = 1
+    if (event.data === YT.PlayerState.PLAYING) {
+        // El video comenzó a reproducirse, pausar la música de fondo
+        if (!music.paused) {
+            backgroundMusicWasPlaying = true;
+            music.pause();
+            if (musicIcon) musicIcon.className = 'fas fa-volume-mute';
+            console.log('🎬 Video reproduciendo - Música pausada');
+        }
+    }
+    // YT.PlayerState.PAUSED = 2, YT.PlayerState.ENDED = 0
+    else if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
+        // El video se pausó o terminó, reanudar la música si estaba reproduciéndose antes
+        if (backgroundMusicWasPlaying) {
+            const playPromise = music.play();
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    if (musicIcon) musicIcon.className = 'fas fa-volume-up';
+                    console.log('🎵 Video pausado/terminado - Música reanudada');
+                }).catch(e => {
+                    console.log('Error al reanudar música:', e);
+                });
+            }
+            backgroundMusicWasPlaying = false;
+        }
+    }
+}
+
+// Animación para sección de video
+function animateVideoSection(section) {
+    if (section.dataset.animated === 'true') return;
+    section.dataset.animated = 'true';
+
+    const heroSubtitle = section.querySelector('.hero-subtitle');
+    const heroTitle = section.querySelector('.hero-title');
+    const videoDescription = section.querySelector('.video-description');
+
+    if (heroSubtitle) animateTextLetterByLetter(heroSubtitle, 0, 30);
+    if (heroTitle) animateTextLetterByLetter(heroTitle, 300, 30);
+    if (videoDescription) animateTextLetterByLetter(videoDescription, 600, 25);
+}
