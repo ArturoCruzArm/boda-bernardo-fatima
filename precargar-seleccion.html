@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Pre-cargar Selección - Boda Bernardo & Fátima</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #6d4c41; color: white; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; }
+        .box { background: rgba(255,255,255,0.1); padding: 40px; border-radius: 15px; text-align: center; max-width: 500px; }
+        h2 { margin-bottom: 10px; }
+        p { margin-bottom: 25px; color: #ffe0b2; }
+        button { background: #d4af37; color: #3e2723; border: none; padding: 15px 35px; font-size: 1.1rem; font-weight: bold; border-radius: 25px; cursor: pointer; }
+        button:hover { background: #f5e6c3; }
+        .result { margin-top: 20px; font-size: 1rem; color: #ffe0b2; }
+    </style>
+</head>
+<body>
+<div class="box">
+    <h2>Pre-cargar Selección</h2>
+    <p>Cargará <strong>101 fotos para Impresión</strong> y <strong>1 Ampliación</strong> en el selector.</p>
+    <button onclick="precargar()">Cargar Selección</button>
+    <div class="result" id="resultado"></div>
+</div>
+<script>
+const STORAGE_KEY = 'boda_bernardo_fatima_photo_selections';
+
+// indices 0-based, categorías del JSON exportado
+const selecciones = {
+    2:   { impresion: true },
+    4:   { impresion: true },
+    5:   { impresion: true },
+    10:  { impresion: true },
+    24:  { impresion: true },
+    43:  { impresion: true },
+    47:  { impresion: true },
+    50:  { impresion: true },
+    62:  { impresion: true },
+    71:  { impresion: true },
+    88:  { impresion: true },
+    96:  { impresion: true },
+    98:  { impresion: true },
+    100: { impresion: true },
+    103: { impresion: true },
+    106: { impresion: true },
+    107: { impresion: true },
+    111: { impresion: true },
+    115: { impresion: true },
+    122: { impresion: true },
+    128: { impresion: true },
+    135: { impresion: true },
+    136: { impresion: true },
+    137: { impresion: true },
+    141: { impresion: true },
+    144: { impresion: true },
+    157: { impresion: true },
+    161: { impresion: true },
+    193: { impresion: true },
+    208: { impresion: true },
+    214: { impresion: true },
+    222: { impresion: true },
+    224: { impresion: true },
+    247: { impresion: true },
+    251: { impresion: true },
+    259: { impresion: true },
+    272: { impresion: true },
+    274: { impresion: true },
+    280: { impresion: true },
+    292: { impresion: true },
+    338: { impresion: true },
+    341: { impresion: true },
+    357: { impresion: true },
+    362: { impresion: true },
+    363: { ampliacion: true },
+    368: { impresion: true },
+    372: { impresion: true },
+    374: { impresion: true },
+    377: { impresion: true },
+    378: { impresion: true },
+    381: { impresion: true },
+    382: { impresion: true },
+    384: { impresion: true },
+    386: { impresion: true },
+    389: { impresion: true },
+    392: { impresion: true },
+    396: { impresion: true },
+    398: { impresion: true },
+    400: { impresion: true },
+    401: { impresion: true },
+    404: { impresion: true },
+    406: { impresion: true },
+    410: { impresion: true },
+    413: { impresion: true },
+    415: { impresion: true },
+    417: { impresion: true },
+    424: { impresion: true },
+    426: { impresion: true },
+    430: { impresion: true },
+    438: { impresion: true },
+    442: { impresion: true },
+    444: { impresion: true },
+    445: { impresion: true },
+    448: { impresion: true },
+    449: { impresion: true },
+    456: { impresion: true },
+    459: { impresion: true },
+    463: { impresion: true },
+    519: { impresion: true },
+    526: { impresion: true },
+    539: { impresion: true },
+    544: { impresion: true },
+    552: { impresion: true },
+    566: { impresion: true },
+    570: { impresion: true },
+    580: { impresion: true },
+    583: { impresion: true },
+    587: { impresion: true },
+    588: { impresion: true },
+    589: { impresion: true },
+    590: { impresion: true },
+    596: { impresion: true },
+    619: { impresion: true },
+    620: { impresion: true },
+    633: { impresion: true },
+    665: { impresion: true },
+    695: { impresion: true },
+    712: { impresion: true },
+    714: { impresion: true },
+    715: { impresion: true },
+    719: { impresion: true },
+    724: { impresion: true }
+};
+
+function precargar() {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(selecciones));
+    const total = Object.keys(selecciones).length;
+    document.getElementById('resultado').innerHTML =
+        '✓ ' + total + ' fotos cargadas.<br><a href="selector.html" style="color:#d4af37;">Ir al Selector →</a>';
+}
+</script>
+</body>
+</html>

@@ -735,7 +735,7 @@ const photos = [
 const STORAGE_KEY = 'boda_bernardo_fatima_photo_selections';
 let photoSelections = {};
 let currentPhotoIndex = null;
-let currentFilter = 'all';
+let currentFilter = 'impresion';
 
 // ========================================
 // LOCAL STORAGE FUNCTIONS
@@ -1262,7 +1262,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('btnFilterSinClasificar').dataset.filter = 'sin-clasificar';
 
     // Set initial active filter
-    document.getElementById('btnFilterAll').classList.add('active');
+    document.getElementById('btnFilterImpresion').classList.add('active');
 
     // Action buttons
     document.getElementById('btnExport').addEventListener('click', exportToJSON);
