@@ -731,6 +731,11 @@ const photos = [
     'imagenes/DSC_9069.webp',
     'imagenes/DSC_9070.webp',
 ];
+// Thumbnail helper: usa thumb/ en grid para ahorrar RAM en moviles
+function getThumbPath(fullPath) {
+    return fullPath.replace('imagenes/', 'imagenes/thumb/');
+}
+
 
 const STORAGE_KEY = 'boda_bernardo_fatima_photo_selections';
 let photoSelections = {};
@@ -891,7 +896,7 @@ function renderGallery() {
         } else {
             mediaHTML = `
                 <div class="photo-image-container">
-                    <img src="${photo}" alt="${displayNumber}" loading="lazy">
+                    <img src="${getThumbPath(photo)}" alt="${displayNumber}" loading="lazy">
                 </div>
             `;
         }
